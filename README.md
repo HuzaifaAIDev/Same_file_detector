@@ -11,20 +11,20 @@
 
 ## AI-Powered Document Similarity & Duplicate File Detection System
 
-**Same File Detector** is a document intelligence platform that detects duplicate and similar files using OCR, text extraction, and fuzzy similarity analysis.
+Same File Detector is a document intelligence platform designed to identify duplicate and similar files using OCR, text extraction, and fuzzy similarity analysis.
 
 The system allows users to upload:
 
-* **BASE documents** (reference files)
-* **COMPARE documents** (files to analyze)
+* **BASE documents** — reference files
+* **COMPARE documents** — files to analyze
 
-and automatically classifies them as:
+and automatically classifies documents as:
 
-* ✅ **EXACT** — Documents are identical
+* ✅ **EXACT** — Documents have identical content
 * ⚠️ **SIMILAR** — Documents contain highly matching content
 * ❌ **DIFFERENT** — Documents have low similarity
 
-Built with **FastAPI, OCR processing, secure authentication, and a modern comparison engine**.
+The platform supports multiple document formats including PDF, DOCX, XLSX, PPTX, TXT, CSV, JSON, and image files.
 
 ---
 
@@ -32,11 +32,24 @@ Built with **FastAPI, OCR processing, secure authentication, and a modern compar
 
 If you find this project useful, consider giving it a ⭐ star on GitHub.
 
-Your star helps support the project and motivates future improvements.
+Your support helps improve the project and motivates future development.
 
-👉 Star the repository:
+⭐ Star the repository:
 
 https://github.com/HuzaifaAIDev/Same_file_detector
+
+---
+
+# ✨ Project Highlights
+
+* 🔍 Intelligent document similarity detection
+* 📄 Multi-format document processing
+* 🤖 OCR support for scanned documents
+* 🔐 Secure authentication system
+* 👨‍💼 Admin management dashboard
+* 📚 REST API with Swagger documentation
+* 🐳 Docker deployment support
+* 📊 Comparison history tracking
 
 ---
 
@@ -68,27 +81,27 @@ https://github.com/HuzaifaAIDev/Same_file_detector
 
 ![User Dashboard](assets/user_dashboard_empty.jpg)
 
-### Select Documents
+### Select Files For Comparison
 
 ![Files Selected](assets/user_files_selected.jpg)
 
-### Similarity Results
+### Comparison Results
 
 ![Comparison Results](assets/comparison_results.jpg)
 
 ---
 
-# 👨‍💼 Admin Dashboard
+# 👨‍💼 Admin Panel
 
-### Admin Control Panel
+### Admin Dashboard
 
 ![Admin Dashboard](assets/admin_dashboard.jpg)
 
-### User Management (Light Theme)
+### User Management - Light Theme
 
 ![User Management Light](assets/admin_user_management_light.jpg)
 
-### User Management (Dark Theme)
+### User Management - Dark Theme
 
 ![User Management Dark](assets/admin_user_management_dark.jpg)
 
@@ -96,19 +109,19 @@ https://github.com/HuzaifaAIDev/Same_file_detector
 
 # 📚 API Documentation
 
-FastAPI provides interactive API documentation through Swagger UI.
+Built using FastAPI Swagger documentation.
 
 ### Swagger Overview
 
 ![Swagger Overview](assets/api_docs_overview.jpg)
 
-### Authentication & Admin APIs
+### Authentication, Admin & Compare APIs
 
-![Swagger Auth](assets/api_docs_auth_admin_compare.jpg)
+![Swagger Auth Admin Compare](assets/api_docs_auth_admin_compare.jpg)
 
-### Compare APIs
+### Compare API Interface
 
-![Compare APIs](assets/api_docs_admin_compare_ui.jpg)
+![Swagger Compare](assets/api_docs_admin_compare_ui.jpg)
 
 ### API Schemas
 
@@ -118,14 +131,15 @@ FastAPI provides interactive API documentation through Swagger UI.
 
 ---
 
-# 🚀 Key Features
+# 🚀 Features
 
-## 📂 Intelligent File Comparison
+## 📂 Document Comparison Engine
 
 * Upload multiple BASE and COMPARE files
-* Detect duplicate documents
+* Extract document content automatically
+* Compare documents using similarity matching
 * Calculate similarity percentage
-* Generate comparison reports
+* Generate comparison results
 * Maintain comparison history
 
 ---
@@ -133,22 +147,23 @@ FastAPI provides interactive API documentation through Swagger UI.
 ## 🤖 Document Intelligence
 
 * OCR extraction from images and scanned PDFs
-* Text extraction from multiple formats
+* Text extraction from multiple file formats
 * Fuzzy text similarity matching
-* Document content analysis
-* Automatic classification
+* Content-based comparison
+* Automated classification
 
 ---
 
 ## 🔐 Authentication & Security
 
 * JWT authentication
-* bcrypt password hashing
+* Secure password hashing using bcrypt
 * Email OTP verification
 * Password reset workflow
 * Role-based access control
 * Security headers middleware
 * Input validation
+* Upload restrictions
 * Rate limiting protection
 
 ---
@@ -158,31 +173,47 @@ FastAPI provides interactive API documentation through Swagger UI.
 * Admin dashboard
 * User management
 * Account activation/suspension
+* Protected admin endpoints
 * User monitoring
-* Protected admin APIs
 
 ---
 
-# 🏗️ Architecture
+# 🏗️ System Architecture
 
 ```text
 Same_file_detector/
 
+│
 ├── backend/
 │   └── app/
-│       ├── api/              # Authentication, Admin, Compare APIs
-│       ├── core/             # Config, JWT, Security, OTP
-│       ├── models/           # Database models
-│       ├── services/         # OCR, extraction, similarity engine
-│       ├── repositories/     # Database operations
+│       ├── api/
+│       │   └── Authentication, Admin, Compare APIs
+│       │
+│       ├── core/
+│       │   └── Config, Security, JWT, OTP
+│       │
+│       ├── models/
+│       │   └── Database Models
+│       │
+│       ├── services/
+│       │   ├── OCR Processing
+│       │   ├── File Extraction
+│       │   └── Similarity Engine
+│       │
+│       ├── repositories/
+│       │   └── Database Operations
+│       │
 │       └── main.py
 │
 ├── frontend/
-│   ├── templates/            # Jinja2 templates
-│   ├── static/css/           # Styling
-│   └── static/js/            # Frontend logic
+│   ├── templates/
+│   ├── static/css/
+│   └── static/js/
 │
-├── assets/                   # Screenshots and media
+├── assets/
+│   ├── banner.png
+│   └── screenshots
+│
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
@@ -210,7 +241,7 @@ Same_file_detector/
 
 ## Frontend
 
-* Jinja2
+* Jinja2 Templates
 * JavaScript
 * HTML5
 * CSS3
@@ -224,7 +255,18 @@ Same_file_detector/
 
 ---
 
-# ⚙️ Installation
+# 📋 Requirements
+
+Before running the project:
+
+* Python 3.10+
+* Tesseract OCR
+* Docker (optional)
+* PostgreSQL (production)
+
+---
+
+# ⚙️ Installation Guide
 
 ## Clone Repository
 
@@ -236,7 +278,7 @@ cd Same_file_detector
 
 ---
 
-## Backend Setup
+# Backend Setup
 
 ```bash
 cd backend
@@ -244,7 +286,7 @@ cd backend
 python -m venv venv
 ```
 
-Activate:
+Activate environment:
 
 ### Windows
 
@@ -258,13 +300,13 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Create environment:
+Create environment file:
 
 ```bash
 copy .env.example .env
 ```
 
-Run:
+Run application:
 
 ```bash
 python main.py
@@ -290,13 +332,13 @@ pytest -q
 
 # 🐳 Docker Deployment
 
-Run:
+Build and start:
 
 ```bash
 docker compose up --build
 ```
 
-Docker starts:
+Docker deployment includes:
 
 * FastAPI backend
 * Database service
@@ -306,7 +348,7 @@ Docker starts:
 
 # 📖 API Documentation
 
-Swagger:
+Swagger UI:
 
 ```
 http://localhost:20285/api/docs
@@ -335,22 +377,22 @@ http://localhost:20285/api/redoc
 
 ---
 
-# 🔒 Security
+# 🔒 Security Implementation
 
-Implemented security features:
+The system includes:
 
 * JWT authentication
 * Password encryption
 * OTP verification
-* Secure headers
+* Security headers
 * File validation
-* Upload restrictions
-* Rate limiting
+* Upload size limits
 * Safe file handling
+* Rate limiting
 
 ---
 
-# 📁 Supported Formats
+# 📁 Supported File Formats
 
 | Format | Support |
 | ------ | ------- |
@@ -370,11 +412,11 @@ Implemented security features:
 Planned improvements:
 
 * Semantic similarity using embeddings
+* Advanced document understanding
 * Large-scale document processing
-* Advanced analytics dashboard
 * Cloud deployment
-* More document formats
-* Improved AI-based ranking
+* Analytics dashboard
+* Additional document formats
 
 ---
 
@@ -383,25 +425,34 @@ Planned improvements:
 ## HuzaifaAIDev
 
 GitHub:
+
 https://github.com/HuzaifaAIDev
 
 ---
 
-# ⭐ Contribute & Support
+# 🤝 Contributing
 
-Found this project interesting?
+Contributions, issues, and feature requests are welcome.
 
-You can help by:
+If you would like to contribute:
 
-* ⭐ Starring the repository
-* Reporting issues
-* Suggesting improvements
-* Contributing new features
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-Every contribution helps improve the project.
+---
+
+# ⭐ Show Your Support
+
+If this project helped you or you found it interesting:
+
+⭐ Star the repository
+🐛 Report issues
+💡 Suggest improvements
 
 ---
 
 # 📄 License
 
-Licensed under the MIT License.
+This project is licensed under the MIT License.
