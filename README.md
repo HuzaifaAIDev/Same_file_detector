@@ -1,3 +1,5 @@
+![Same File Detector Banner](assets/banner.png)
+
 # 🔍 Same File Detector
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
@@ -5,27 +7,36 @@
 ![OCR](https://img.shields.io/badge/OCR-Tesseract-orange)
 ![Docker](https://img.shields.io/badge/Docker-Supported-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+![GitHub Stars](https://img.shields.io/github/stars/HuzaifaAIDev/Same_file_detector?style=social)
 
 ## AI-Powered Document Similarity & Duplicate File Detection System
 
-Same File Detector is an intelligent document comparison platform that detects duplicate and similar files using OCR, text extraction, and fuzzy similarity matching.
+**Same File Detector** is a document intelligence platform that detects duplicate and similar files using OCR, text extraction, and fuzzy similarity analysis.
 
-Users can upload **BASE files** and **COMPARE files**, and the system analyzes their content to classify documents as:
+The system allows users to upload:
 
-* ✅ EXACT
-* ⚠️ SIMILAR
-* ❌ DIFFERENT
+* **BASE documents** (reference files)
+* **COMPARE documents** (files to analyze)
 
-The system supports multiple document formats including:
+and automatically classifies them as:
 
-* PDF
-* DOCX
-* XLSX
-* PPTX
-* TXT
-* CSV
-* JSON
-* Images
+* ✅ **EXACT** — Documents are identical
+* ⚠️ **SIMILAR** — Documents contain highly matching content
+* ❌ **DIFFERENT** — Documents have low similarity
+
+Built with **FastAPI, OCR processing, secure authentication, and a modern comparison engine**.
+
+---
+
+# ⭐ Support This Project
+
+If you find this project useful, consider giving it a ⭐ star on GitHub.
+
+Your star helps support the project and motivates future improvements.
+
+👉 Star the repository:
+
+https://github.com/HuzaifaAIDev/Same_file_detector
 
 ---
 
@@ -41,43 +52,43 @@ The system supports multiple document formats including:
 
 ![Create Account](assets/create_account.jpg)
 
-### Email Verification (OTP)
+### Email OTP Verification
 
 ![Verify Email](assets/verify_email.jpg)
 
-### Reset Password
+### Password Reset
 
 ![Reset Password](assets/reset_password.jpg)
 
 ---
 
-# 👤 User Interface
+# 👤 User Dashboard
 
-### Empty User Dashboard
+### User Dashboard
 
 ![User Dashboard](assets/user_dashboard_empty.jpg)
 
-### Select Files For Comparison
+### Select Documents
 
 ![Files Selected](assets/user_files_selected.jpg)
 
-### Comparison Results
+### Similarity Results
 
 ![Comparison Results](assets/comparison_results.jpg)
 
 ---
 
-# 👨‍💼 Admin Panel
+# 👨‍💼 Admin Dashboard
 
-### Admin Dashboard
+### Admin Control Panel
 
 ![Admin Dashboard](assets/admin_dashboard.jpg)
 
-### User Management - Light Theme
+### User Management (Light Theme)
 
 ![User Management Light](assets/admin_user_management_light.jpg)
 
-### User Management - Dark Theme
+### User Management (Dark Theme)
 
 ![User Management Dark](assets/admin_user_management_dark.jpg)
 
@@ -85,62 +96,60 @@ The system supports multiple document formats including:
 
 # 📚 API Documentation
 
-Built-in Swagger documentation powered by FastAPI.
+FastAPI provides interactive API documentation through Swagger UI.
 
 ### Swagger Overview
 
 ![Swagger Overview](assets/api_docs_overview.jpg)
 
-### Authentication, Admin & Compare APIs
+### Authentication & Admin APIs
 
-![Swagger Auth Admin Compare](assets/api_docs_auth_admin_compare.jpg)
+![Swagger Auth](assets/api_docs_auth_admin_compare.jpg)
 
-### Admin Compare UI APIs
+### Compare APIs
 
-![Swagger Admin Compare UI](assets/api_docs_admin_compare_ui.jpg)
+![Compare APIs](assets/api_docs_admin_compare_ui.jpg)
 
 ### API Schemas
 
-![API Schemas](assets/api_docs_schemas.jpg)
-
-### Extended Schemas
+![Schemas](assets/api_docs_schemas.jpg)
 
 ![Extended Schemas](assets/api_docs_schemas_extended.jpg)
 
 ---
 
-# 🚀 Features
+# 🚀 Key Features
 
 ## 📂 Intelligent File Comparison
 
-* Upload BASE and COMPARE document sets
+* Upload multiple BASE and COMPARE files
 * Detect duplicate documents
 * Calculate similarity percentage
-* Generate comparison results
+* Generate comparison reports
 * Maintain comparison history
 
 ---
 
-## 🤖 AI-Based Document Processing
+## 🤖 Document Intelligence
 
 * OCR extraction from images and scanned PDFs
 * Text extraction from multiple formats
 * Fuzzy text similarity matching
 * Document content analysis
-* Automated classification system
+* Automatic classification
 
 ---
 
 ## 🔐 Authentication & Security
 
 * JWT authentication
-* Secure password hashing with bcrypt
+* bcrypt password hashing
 * Email OTP verification
 * Password reset workflow
 * Role-based access control
 * Security headers middleware
-* Request validation
-* Rate limiting
+* Input validation
+* Rate limiting protection
 
 ---
 
@@ -150,45 +159,30 @@ Built-in Swagger documentation powered by FastAPI.
 * User management
 * Account activation/suspension
 * User monitoring
-* Secure admin-only endpoints
+* Protected admin APIs
 
 ---
 
-# 🏗️ System Architecture
+# 🏗️ Architecture
 
 ```text
 Same_file_detector/
 
-│
 ├── backend/
 │   └── app/
-│       ├── api/
-│       │   └── Authentication, Admin, Compare APIs
-│       │
-│       ├── core/
-│       │   └── Security, Config, JWT, OTP
-│       │
-│       ├── models/
-│       │   └── Database Models
-│       │
-│       ├── services/
-│       │   ├── OCR Processing
-│       │   ├── File Extraction
-│       │   └── Similarity Engine
-│       │
-│       ├── repositories/
-│       │   └── Database Operations
-│       │
+│       ├── api/              # Authentication, Admin, Compare APIs
+│       ├── core/             # Config, JWT, Security, OTP
+│       ├── models/           # Database models
+│       ├── services/         # OCR, extraction, similarity engine
+│       ├── repositories/     # Database operations
 │       └── main.py
 │
 ├── frontend/
-│   ├── templates/
-│   ├── static/css/
-│   └── static/js/
+│   ├── templates/            # Jinja2 templates
+│   ├── static/css/           # Styling
+│   └── static/js/            # Frontend logic
 │
-├── assets/
-│   └── Application Screenshots
-│
+├── assets/                   # Screenshots and media
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
@@ -216,20 +210,21 @@ Same_file_detector/
 
 ## Frontend
 
-* Jinja2 Templates
+* Jinja2
 * JavaScript
 * HTML5
 * CSS3
 
-## Deployment
+## Database & Deployment
 
+* SQLite
+* PostgreSQL
 * Docker
 * Docker Compose
-* PostgreSQL / SQLite
 
 ---
 
-# ⚙️ Installation Guide
+# ⚙️ Installation
 
 ## Clone Repository
 
@@ -241,21 +236,15 @@ cd Same_file_detector
 
 ---
 
-# Backend Setup
-
-Go to backend:
+## Backend Setup
 
 ```bash
 cd backend
-```
 
-Create virtual environment:
-
-```bash
 python -m venv venv
 ```
 
-Activate environment:
+Activate:
 
 ### Windows
 
@@ -263,19 +252,19 @@ Activate environment:
 venv\Scripts\activate
 ```
 
-Install requirements:
+Install dependencies:
 
 ```bash
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 ```
 
-Create environment file:
+Create environment:
 
 ```bash
 copy .env.example .env
 ```
 
-Run application:
+Run:
 
 ```bash
 python main.py
@@ -289,7 +278,9 @@ http://localhost:20285
 
 ---
 
-# 🧪 Running Tests
+# 🧪 Testing
+
+Run:
 
 ```bash
 pytest -q
@@ -299,13 +290,13 @@ pytest -q
 
 # 🐳 Docker Deployment
 
-Build and run:
+Run:
 
 ```bash
 docker compose up --build
 ```
 
-The application will start with:
+Docker starts:
 
 * FastAPI backend
 * Database service
@@ -315,7 +306,7 @@ The application will start with:
 
 # 📖 API Documentation
 
-Swagger UI:
+Swagger:
 
 ```
 http://localhost:20285/api/docs
@@ -331,70 +322,86 @@ http://localhost:20285/api/redoc
 
 # 🔌 API Endpoints
 
-| Method | Endpoint                       | Description           |
-| ------ | ------------------------------ | --------------------- |
-| POST   | `/api/v1/auth/register`        | Register user         |
-| POST   | `/api/v1/auth/login`           | User login            |
-| POST   | `/api/v1/auth/change-password` | Change password       |
-| POST   | `/api/v1/auth/reset-password`  | Reset password        |
-| POST   | `/api/v1/compare`              | Compare files         |
-| GET    | `/api/v1/compare/history`      | Comparison history    |
-| GET    | `/api/v1/health`               | Health check          |
-| GET    | `/api/v1/admin/users`          | Admin user management |
+| Method | Endpoint                       | Description       |
+| ------ | ------------------------------ | ----------------- |
+| POST   | `/api/v1/auth/register`        | Register user     |
+| POST   | `/api/v1/auth/login`           | Login             |
+| POST   | `/api/v1/auth/change-password` | Change password   |
+| POST   | `/api/v1/auth/reset-password`  | Reset password    |
+| POST   | `/api/v1/compare`              | Compare documents |
+| GET    | `/api/v1/compare/history`      | View history      |
+| GET    | `/api/v1/admin/users`          | Manage users      |
+| GET    | `/api/v1/health`               | Health check      |
 
 ---
 
-# 🔒 Security Implementation
+# 🔒 Security
 
-The system includes:
+Implemented security features:
 
-* Security headers middleware
-* JWT token authentication
-* Password hashing
+* JWT authentication
+* Password encryption
 * OTP verification
-* Input validation
-* Upload size restrictions
+* Secure headers
+* File validation
+* Upload restrictions
+* Rate limiting
 * Safe file handling
-* Rate limiting protection
 
 ---
 
-# 📁 Supported File Formats
+# 📁 Supported Formats
 
-| Format | Supported |
-| ------ | --------- |
-| PDF    | ✅         |
-| DOCX   | ✅         |
-| XLSX   | ✅         |
-| PPTX   | ✅         |
-| TXT    | ✅         |
-| CSV    | ✅         |
-| JSON   | ✅         |
-| Images | ✅ OCR     |
+| Format | Support |
+| ------ | ------- |
+| PDF    | ✅       |
+| DOCX   | ✅       |
+| XLSX   | ✅       |
+| PPTX   | ✅       |
+| TXT    | ✅       |
+| CSV    | ✅       |
+| JSON   | ✅       |
+| Images | ✅ OCR   |
 
 ---
 
-# 🔮 Future Improvements
+# 🔮 Future Roadmap
 
-* AI semantic embeddings
+Planned improvements:
+
+* Semantic similarity using embeddings
 * Large-scale document processing
-* Cloud deployment
 * Advanced analytics dashboard
+* Cloud deployment
 * More document formats
-* ML-based similarity prediction
+* Improved AI-based ranking
 
 ---
 
 # 👨‍💻 Author
 
-**HuzaifaAIDev**
+## HuzaifaAIDev
 
 GitHub:
-
 https://github.com/HuzaifaAIDev
+
+---
+
+# ⭐ Contribute & Support
+
+Found this project interesting?
+
+You can help by:
+
+* ⭐ Starring the repository
+* Reporting issues
+* Suggesting improvements
+* Contributing new features
+
+Every contribution helps improve the project.
 
 ---
 
 # 📄 License
 
-This project is licensed under the MIT License.
+Licensed under the MIT License.
