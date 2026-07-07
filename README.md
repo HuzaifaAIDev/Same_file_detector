@@ -1,30 +1,40 @@
-![Same File Detector Banner](assets/banner.png)
-
 # 🔍 Same File Detector
+
+![Same File Detector Banner](assets/banner.png)
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
 ![OCR](https://img.shields.io/badge/OCR-Tesseract-orange)
 ![Docker](https://img.shields.io/badge/Docker-Supported-blue)
+![Database](https://img.shields.io/badge/Database-SQLite%20%7C%20PostgreSQL-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![GitHub Stars](https://img.shields.io/github/stars/HuzaifaAIDev/Same_file_detector?style=social)
 
-## AI-Powered Document Similarity & Duplicate File Detection System
+# 📄 Document Similarity & Duplicate File Detection System
 
-Same File Detector is a document intelligence platform designed to identify duplicate and similar files using OCR, text extraction, and fuzzy similarity analysis.
+**Same File Detector** is a document comparison platform designed to identify duplicate and similar documents using OCR extraction, text processing, and fuzzy similarity analysis.
 
 The system allows users to upload:
 
-* **BASE documents** — reference files
-* **COMPARE documents** — files to analyze
+* **BASE Files** → Reference documents
+* **COMPARE Files** → Documents to analyze
 
-and automatically classifies documents as:
+and automatically classifies comparison results into:
 
-* ✅ **EXACT** — Documents have identical content
+* ✅ **EXACT** — Documents contain identical content
 * ⚠️ **SIMILAR** — Documents contain highly matching content
 * ❌ **DIFFERENT** — Documents have low similarity
 
-The platform supports multiple document formats including PDF, DOCX, XLSX, PPTX, TXT, CSV, JSON, and image files.
+The system supports multiple file formats:
+
+* PDF
+* DOCX
+* XLSX
+* PPTX
+* TXT
+* CSV
+* JSON
+* Images (OCR supported)
 
 ---
 
@@ -40,20 +50,61 @@ https://github.com/HuzaifaAIDev/Same_file_detector
 
 ---
 
-# ✨ Project Highlights
+# ✨ Key Features
 
-* 🔍 Intelligent document similarity detection
-* 📄 Multi-format document processing
-* 🤖 OCR support for scanned documents
-* 🔐 Secure authentication system
-* 👨‍💼 Admin management dashboard
-* 📚 REST API with Swagger documentation
-* 🐳 Docker deployment support
-* 📊 Comparison history tracking
+## 📂 Document Comparison Engine
+
+* Upload multiple BASE and COMPARE documents
+* Extract text from different file formats
+* Compare document content automatically
+* Generate similarity scores
+* Classify documents as EXACT / SIMILAR / DIFFERENT
+* Maintain comparison history
 
 ---
 
-# 📸 Application Preview
+## 🔎 Intelligent Document Processing
+
+The system provides:
+
+* OCR extraction from images and scanned PDFs
+* Text extraction from supported formats
+* Fuzzy text similarity matching
+* Content-based duplicate detection
+* Automated document classification
+
+---
+
+# 🔐 Authentication & Security
+
+Implemented security features:
+
+* JWT authentication
+* Secure password hashing using bcrypt
+* Email OTP verification
+* Password reset workflow
+* Role-based access control
+* Security headers middleware
+* Rate limiting protection
+* Input validation
+* File upload validation
+* Safe file handling
+
+---
+
+# 👨‍💼 Admin Features
+
+Admin users can:
+
+* Access admin dashboard
+* Manage users
+* Activate or suspend accounts
+* Monitor user activity
+* Access protected admin APIs
+
+---
+
+# 📸 Application Screenshots
 
 ## 🔐 Authentication
 
@@ -83,7 +134,7 @@ https://github.com/HuzaifaAIDev/Same_file_detector
 
 ### Select Files For Comparison
 
-![Files Selected](assets/user_files_selected.jpg)
+![Selected Files](assets/user_files_selected.jpg)
 
 ### Comparison Results
 
@@ -97,19 +148,19 @@ https://github.com/HuzaifaAIDev/Same_file_detector
 
 ![Admin Dashboard](assets/admin_dashboard.jpg)
 
-### User Management - Light Theme
+### User Management Light Theme
 
-![User Management Light](assets/admin_user_management_light.jpg)
+![Light Theme](assets/admin_user_management_light.jpg)
 
-### User Management - Dark Theme
+### User Management Dark Theme
 
-![User Management Dark](assets/admin_user_management_dark.jpg)
+![Dark Theme](assets/admin_user_management_dark.jpg)
 
 ---
 
 # 📚 API Documentation
 
-Built using FastAPI Swagger documentation.
+Built with FastAPI Swagger documentation.
 
 ### Swagger Overview
 
@@ -117,11 +168,11 @@ Built using FastAPI Swagger documentation.
 
 ### Authentication, Admin & Compare APIs
 
-![Swagger Auth Admin Compare](assets/api_docs_auth_admin_compare.jpg)
+![Auth Admin Compare](assets/api_docs_auth_admin_compare.jpg)
 
 ### Compare API Interface
 
-![Swagger Compare](assets/api_docs_admin_compare_ui.jpg)
+![Compare API](assets/api_docs_admin_compare_ui.jpg)
 
 ### API Schemas
 
@@ -131,84 +182,82 @@ Built using FastAPI Swagger documentation.
 
 ---
 
-# 🚀 Features
-
-## 📂 Document Comparison Engine
-
-* Upload multiple BASE and COMPARE files
-* Extract document content automatically
-* Compare documents using similarity matching
-* Calculate similarity percentage
-* Generate comparison results
-* Maintain comparison history
-
----
-
-## 🤖 Document Intelligence
-
-* OCR extraction from images and scanned PDFs
-* Text extraction from multiple file formats
-* Fuzzy text similarity matching
-* Content-based comparison
-* Automated classification
-
----
-
-## 🔐 Authentication & Security
-
-* JWT authentication
-* Secure password hashing using bcrypt
-* Email OTP verification
-* Password reset workflow
-* Role-based access control
-* Security headers middleware
-* Input validation
-* Upload restrictions
-* Rate limiting protection
-
----
-
-## 👨‍💼 Admin Features
-
-* Admin dashboard
-* User management
-* Account activation/suspension
-* Protected admin endpoints
-* User monitoring
-
----
-
 # 🏗️ System Architecture
 
-```text
+```
 Same_file_detector/
 
 │
 ├── backend/
-│   └── app/
-│       ├── api/
-│       │   └── Authentication, Admin, Compare APIs
-│       │
-│       ├── core/
-│       │   └── Config, Security, JWT, OTP
-│       │
-│       ├── models/
-│       │   └── Database Models
-│       │
-│       ├── services/
-│       │   ├── OCR Processing
-│       │   ├── File Extraction
-│       │   └── Similarity Engine
-│       │
-│       ├── repositories/
-│       │   └── Database Operations
-│       │
-│       └── main.py
+│   │
+│   ├── app/
+│   │   │
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   │       ├── auth.py
+│   │   │       ├── admin.py
+│   │   │       ├── compare.py
+│   │   │       ├── health.py
+│   │   │       └── router.py
+│   │   │
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   ├── security.py
+│   │   │   ├── validators.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── logging_config.py
+│   │   │   └── seed.py
+│   │   │
+│   │   ├── database/
+│   │   │   └── session.py
+│   │   │
+│   │   ├── middleware/
+│   │   │   ├── security_headers.py
+│   │   │   └── rate_limit.py
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.py
+│   │   │   ├── otp.py
+│   │   │   └── comparison.py
+│   │   │
+│   │   ├── repositories/
+│   │   │   ├── user_repository.py
+│   │   │   ├── otp_repository.py
+│   │   │   └── comparison_repository.py
+│   │   │
+│   │   ├── schemas/
+│   │   │   ├── user.py
+│   │   │   └── compare.py
+│   │   │
+│   │   ├── services/
+│   │   │   ├── extraction_service.py
+│   │   │   ├── comparison_service.py
+│   │   │   ├── otp_service.py
+│   │   │   └── email_service.py
+│   │   │
+│   │   ├── utils/
+│   │   │   └── file_validation.py
+│   │   │
+│   │   └── main.py
+│   │
+│   ├── tests/
+│   ├── uploads/
+│   ├── logs/
+│   ├── requirements.txt
+│   ├── requirements-dev.txt
+│   └── .env.example
 │
 ├── frontend/
+│   │
 │   ├── templates/
-│   ├── static/css/
-│   └── static/js/
+│   │   └── index.html
+│   │
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       │
+│       └── js/
+│           └── app.js
 │
 ├── assets/
 │   ├── banner.png
@@ -242,9 +291,9 @@ Same_file_detector/
 ## Frontend
 
 * Jinja2 Templates
-* JavaScript
 * HTML5
 * CSS3
+* JavaScript
 
 ## Database & Deployment
 
@@ -257,7 +306,7 @@ Same_file_detector/
 
 # 📋 Requirements
 
-Before running the project:
+Before running:
 
 * Python 3.10+
 * Tesseract OCR
@@ -266,7 +315,7 @@ Before running the project:
 
 ---
 
-# ⚙️ Installation Guide
+# ⚙️ Installation
 
 ## Clone Repository
 
@@ -286,7 +335,7 @@ cd backend
 python -m venv venv
 ```
 
-Activate environment:
+Activate:
 
 ### Windows
 
@@ -312,7 +361,7 @@ Run application:
 python main.py
 ```
 
-Application:
+Application URL:
 
 ```
 http://localhost:20285
@@ -332,23 +381,23 @@ pytest -q
 
 # 🐳 Docker Deployment
 
-Build and start:
+Run:
 
 ```bash
 docker compose up --build
 ```
 
-Docker deployment includes:
+Docker setup provides:
 
-* FastAPI backend
+* FastAPI application
 * Database service
-* Production configuration
+* Production-ready configuration
 
 ---
 
 # 📖 API Documentation
 
-Swagger UI:
+Swagger:
 
 ```
 http://localhost:20285/api/docs
@@ -362,37 +411,22 @@ http://localhost:20285/api/redoc
 
 ---
 
-# 🔌 API Endpoints
+# 🔌 Main API Endpoints
 
-| Method | Endpoint                       | Description       |
-| ------ | ------------------------------ | ----------------- |
-| POST   | `/api/v1/auth/register`        | Register user     |
-| POST   | `/api/v1/auth/login`           | Login             |
-| POST   | `/api/v1/auth/change-password` | Change password   |
-| POST   | `/api/v1/auth/reset-password`  | Reset password    |
-| POST   | `/api/v1/compare`              | Compare documents |
-| GET    | `/api/v1/compare/history`      | View history      |
-| GET    | `/api/v1/admin/users`          | Manage users      |
-| GET    | `/api/v1/health`               | Health check      |
-
----
-
-# 🔒 Security Implementation
-
-The system includes:
-
-* JWT authentication
-* Password encryption
-* OTP verification
-* Security headers
-* File validation
-* Upload size limits
-* Safe file handling
-* Rate limiting
+| Method | Endpoint                       | Description           |
+| ------ | ------------------------------ | --------------------- |
+| POST   | `/api/v1/auth/register`        | Register user         |
+| POST   | `/api/v1/auth/login`           | User login            |
+| POST   | `/api/v1/auth/change-password` | Change password       |
+| POST   | `/api/v1/auth/reset-password`  | Reset password        |
+| POST   | `/api/v1/compare`              | Compare documents     |
+| GET    | `/api/v1/compare/history`      | Comparison history    |
+| GET    | `/api/v1/admin/users`          | Admin user management |
+| GET    | `/api/v1/health`               | Health check          |
 
 ---
 
-# 📁 Supported File Formats
+# 📁 Supported Formats
 
 | Format | Support |
 | ------ | ------- |
@@ -407,49 +441,27 @@ The system includes:
 
 ---
 
-# 🔮 Future Roadmap
+# 🔮 Future Improvements
 
-Planned improvements:
+Planned features:
 
-* Semantic similarity using embeddings
+* Semantic similarity using AI embeddings
 * Advanced document understanding
-* Large-scale document processing
 * Cloud deployment
 * Analytics dashboard
-* Additional document formats
+* Large-scale document processing
+* Additional file formats
 
 ---
 
+
 # 👨‍💻 Author
 
-## HuzaifaAIDev
+**HuzaifaAIDev**
 
 GitHub:
 
 https://github.com/HuzaifaAIDev
-
----
-
-# 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome.
-
-If you would like to contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
----
-
-# ⭐ Show Your Support
-
-If this project helped you or you found it interesting:
-
-⭐ Star the repository
-🐛 Report issues
-💡 Suggest improvements
 
 ---
 
