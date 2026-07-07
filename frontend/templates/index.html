@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal File Comparer</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">UF</div>
+      <span>Universal File Comparer</span>
+    </div>
+    <div class="topbar-actions">
+      <span id="userLabel" class="muted"></span>
+      <button id="adminNavBtn" class="btn secondary hidden">Admin</button>
+      <button id="logoutBtn" class="btn secondary hidden">Sign out</button>
+      <button id="themeToggle" class="btn icon secondary" title="Toggle dark mode">🌓</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- AUTH PANEL -->
+    <div id="authPanel" class="card auth-card">
+
+      <!-- STEP: sign in / create account tabs -->
+      <div id="authTabs" class="tabs">
+        <button id="tabLogin" class="tab-btn active">Sign in</button>
+        <button id="tabRegister" class="tab-btn">Create account</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="loginForm">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required />
+        <label>Password</label>
+        <div class="password-field">
+          <input type="password" id="loginPassword" required />
+          <button type="button" class="pw-toggle" data-target="loginPassword">👁</button>
+        </div>
+        <p class="muted" style="text-align:right;margin-top:8px;">
+          <a href="#" id="forgotPasswordLink">Forgot password?</a>
+        </p>
+        <button type="submit" class="btn" style="margin-top:10px;width:100%;">Sign in</button>
+      </form>
+
+      <!-- REGISTER: step 1 - details -->
+      <form id="registerForm" class="hidden">
+        <div class="form-row">
+          <div>
+            <label>First name</label>
+            <input type="text" id="registerFirstName" required />
+          </div>
+          <div>
+            <label>Last name</label>
+            <input type="text" id="registerLastName" required />
+          </div>
+        </div>
+        <label>Username</label>
+        <input type="text" id="registerUsername" required minlength="3" />
+        <label>Email</label>
+        <input type="email" id="registerEmail" required />
+
+        <label>Password</label>
+        <div class="password-field">
+          <input type="password" id="registerPassword" required minlength="8" />
+          <button type="button" class="pw-toggle" data-target="registerPassword">👁</button>
+        </div>
+        <div class="strength-meter"><div class="fill" id="registerStrengthFill"></div></div>
+        <ul class="pw-checklist" id="registerChecklist">
+          <li data-rule="min_length">8+ characters</li>
+          <li data-rule="uppercase">Uppercase letter</li>
+          <li data-rule="lowercase">Lowercase letter</li>
+          <li data-rule="number">Number</li>
+          <li data-rule="special">Special character</li>
+        </ul>
+
+        <label>Confirm password</label>
+        <div class="password-field">
+          <input type="password" id="registerConfirmPassword" required minlength="8" />
+          <button type="button" class="pw-toggle" data-target="registerConfirmPassword">👁</button>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%;margin-top:16px;">Create account</button>
+      </form>
+
+      <!-- REGISTER: step 2 - OTP -->
+      <div id="registerOtpStep" class="hidden">
+        <h2 style="margin-top:0;">Verify your email</h2>
+        <p class="muted" id="registerOtpMessage">We've sent a 6-digit code to your email.</p>
+        <div class="otp-boxes" id="registerOtpBoxes"></div>
+        <button id="registerOtpSubmit" class="btn" style="width:100%;margin-top:16px;">Verify &amp; create account</button>
+        <p class="muted" style="text-align:center;margin-top:14px;">
+          Didn't get a code?
+          <a href="#" id="registerResendLink">Resend</a>
+          <span id="registerResendTimer"></span>
+        </p>
+        <button id="registerOtpBack" class="btn secondary" style="width:100%;margin-top:6px;">Back</button>
+      </div>
+
+      <!-- FORGOT PASSWORD: step 1 - email -->
+      <div id="forgotEmailStep" class="hidden">
+        <h2 style="margin-top:0;">Reset your password</h2>
+        <p class="muted">Enter your account email and we'll send you a verification code.</p>
+        <label>Email</label>
+        <input type="email" id="forgotEmail" required />
+        <button id="forgotEmailSubmit" class="btn" style="width:100%;margin-top:16px;">Send code</button>
+        <button id="forgotEmailBack" class="btn secondary" style="width:100%;margin-top:6px;">Back to sign in</button>
+      </div>
+
+      <!-- FORGOT PASSWORD: step 2 - OTP -->
+      <div id="forgotOtpStep" class="hidden">
+        <h2 style="margin-top:0;">Enter verification code</h2>
+        <p class="muted">Check your email for the 6-digit code.</p>
+        <div class="otp-boxes" id="forgotOtpBoxes"></div>
+        <button id="forgotOtpSubmit" class="btn" style="width:100%;margin-top:16px;">Verify code</button>
+        <p class="muted" style="text-align:center;margin-top:14px;">
+          Didn't get a code?
+          <a href="#" id="forgotResendLink">Resend</a>
+          <span id="forgotResendTimer"></span>
+        </p>
+      </div>
+
+      <!-- FORGOT PASSWORD: step 3 - new password -->
+      <div id="forgotNewPasswordStep" class="hidden">
+        <h2 style="margin-top:0;">Create new password</h2>
+        <label>New password</label>
+        <div class="password-field">
+          <input type="password" id="forgotNewPassword" required minlength="8" />
+          <button type="button" class="pw-toggle" data-target="forgotNewPassword">👁</button>
+        </div>
+        <div class="strength-meter"><div class="fill" id="forgotStrengthFill"></div></div>
+        <ul class="pw-checklist" id="forgotChecklist">
+          <li data-rule="min_length">8+ characters</li>
+          <li data-rule="uppercase">Uppercase letter</li>
+          <li data-rule="lowercase">Lowercase letter</li>
+          <li data-rule="number">Number</li>
+          <li data-rule="special">Special character</li>
+        </ul>
+        <label>Confirm new password</label>
+        <div class="password-field">
+          <input type="password" id="forgotConfirmPassword" required minlength="8" />
+          <button type="button" class="pw-toggle" data-target="forgotConfirmPassword">👁</button>
+        </div>
+        <button id="forgotResetSubmit" class="btn" style="width:100%;margin-top:16px;">Update password</button>
+      </div>
+
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="hidden">
+      <div class="card">
+        <h2>User Management</h2>
+        <p class="muted">Admins can suspend, reactivate, or permanently delete accounts.</p>
+        <table id="adminUsersTable">
+          <thead><tr><th>Name</th><th>Username</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- APP PANEL -->
+    <div id="appPanel" class="hidden">
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>BASE Files</h2>
+          <p class="muted">The reference document(s) everything else is compared against.</p>
+          <div class="dropzone" id="baseDropzone">
+            <p>Drag &amp; drop files here, or click to browse</p>
+            <input type="file" id="baseInput" multiple />
+          </div>
+          <div class="file-chip-list" id="baseChips"></div>
+        </div>
+
+        <div class="card">
+          <h2>COMPARE Files</h2>
+          <p class="muted">Each of these will be scored against the BASE files.</p>
+          <div class="dropzone" id="compareDropzone">
+            <p>Drag &amp; drop files here, or click to browse</p>
+            <input type="file" id="compareInput" multiple />
+          </div>
+          <div class="file-chip-list" id="compareChips"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <button id="runBtn" class="btn">Compare Files</button>
+        <div class="progress-bar" id="progressBar"><div class="fill"></div></div>
+      </div>
+
+      <div class="card hidden" id="resultsCard">
+        <h2>Results</h2>
+        <table id="resultTable">
+          <thead><tr><th>File</th><th>Similarity Score</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Recent Comparisons</h2>
+        <table id="historyTable">
+          <thead><tr><th>Date</th><th>Base Files</th><th>Compare Files</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

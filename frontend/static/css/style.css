@@ -1,0 +1,198 @@
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #1a1d29;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --surface: #171923;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #2a2d3a;
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .2s ease, color .2s ease;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+.brand-mark {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), #06b6d4);
+  display: flex; align-items: center; justify-content: center; color: white; font-size: 16px;
+}
+
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 28px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card h2 { margin-top: 0; font-size: 16px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+.dropzone.dragover { border-color: var(--primary); background: rgba(79,70,229,0.06); }
+.dropzone input { display: none; }
+
+.file-chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.file-chip {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 999px;
+  padding: 6px 12px; font-size: 13px; display: flex; align-items: center; gap: 8px;
+}
+.file-chip button { border: none; background: none; color: var(--danger); cursor: pointer; font-size: 14px; }
+
+button.btn {
+  background: var(--primary); color: white; border: none; border-radius: 8px;
+  padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: background .15s ease, transform .05s ease;
+}
+button.btn:hover { background: var(--primary-hover); }
+button.btn:active { transform: scale(0.98); }
+button.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+button.btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+button.btn.icon { padding: 8px 10px; }
+
+.progress-bar { height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; margin-top: 14px; display: none; }
+.progress-bar .fill { height: 100%; width: 0%; background: var(--primary); transition: width .2s ease; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 14px; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge.EXACT { background: rgba(22,163,74,0.15); color: var(--success); }
+.badge.SIMILAR { background: rgba(217,119,6,0.15); color: var(--warning); }
+.badge.DIFFERENT { background: rgba(107,114,128,0.15); color: var(--muted); }
+.badge.ERROR { background: rgba(220,38,38,0.15); color: var(--danger); }
+
+.toast-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 100; }
+.toast {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 16px; box-shadow: var(--shadow); font-size: 14px; min-width: 240px;
+  animation: slideIn .2s ease;
+}
+.toast.success { border-left: 4px solid var(--success); }
+.toast.error { border-left: 4px solid var(--danger); }
+.toast.info { border-left: 4px solid var(--primary); }
+@keyframes slideIn { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+.muted { color: var(--muted); font-size: 13px; }
+input[type="email"], input[type="password"], input[type="text"] {
+  width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; margin-top: 6px;
+}
+label { font-size: 13px; font-weight: 600; display: block; margin-top: 12px; }
+
+.hidden { display: none !important; }
+.tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+.tab-btn {
+  background: transparent; border: none; padding: 8px 14px; border-radius: 8px;
+  cursor: pointer; color: var(--muted); font-weight: 600; font-size: 13px;
+}
+.tab-btn.active { background: var(--surface); color: var(--primary); box-shadow: var(--shadow); }
+
+/* ---------------------------------------------------------------- */
+/* Auth flows: register / login / forgot password                    */
+/* ---------------------------------------------------------------- */
+.auth-card { max-width: 440px; margin: 40px auto; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.password-field { position: relative; }
+.password-field input { padding-right: 40px; }
+.pw-toggle {
+  position: absolute; right: 6px; top: 50%; transform: translateY(calc(-50% + 3px));
+  border: none; background: none; cursor: pointer; font-size: 14px; opacity: .6;
+}
+.pw-toggle:hover { opacity: 1; }
+
+.strength-meter {
+  height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; margin-top: 8px;
+}
+.strength-meter .fill {
+  height: 100%; width: 0%; border-radius: 999px;
+  background: var(--danger); transition: width .2s ease, background .2s ease;
+}
+.strength-meter .fill.weak { background: var(--danger); }
+.strength-meter .fill.fair { background: var(--warning); }
+.strength-meter .fill.strong { background: var(--success); }
+
+.pw-checklist {
+  list-style: none; margin: 10px 0 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px;
+  font-size: 12px; color: var(--muted);
+}
+.pw-checklist li { display: flex; align-items: center; gap: 6px; }
+.pw-checklist li::before { content: "✗"; color: var(--danger); font-weight: 700; }
+.pw-checklist li.met { color: var(--text); }
+.pw-checklist li.met::before { content: "✓"; color: var(--success); }
+
+.otp-boxes { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+.otp-boxes input {
+  width: 44px; height: 52px; text-align: center; font-size: 20px; font-weight: 700;
+  border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text);
+}
+.otp-boxes input:focus { border-color: var(--primary); outline: none; }
+
+a { color: var(--primary); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+
+/* ---------------------------------------------------------------- */
+/* Admin panel                                                        */
+/* ---------------------------------------------------------------- */
+.role-badge { padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.role-badge.admin { background: rgba(79,70,229,0.15); color: var(--primary); }
+.role-badge.user { background: rgba(107,114,128,0.15); color: var(--muted); }
+.status-badge.active { color: var(--success); }
+.status-badge.suspended { color: var(--danger); }
+.row-actions { display: flex; gap: 6px; }
+.row-actions button { font-size: 12px; padding: 6px 10px; }
